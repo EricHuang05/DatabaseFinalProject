@@ -21,9 +21,9 @@ LibreLibro: Because buying books doesn't have to be an action-adventure, drama-m
 
 ## Collaborators
 
-Eric Huang (https://github.com/EricHuang05)
+[Eric Huang](https://github.com/EricHuang05)
 
-Jonathan Ding (https://github.com/nwhee)
+[Jonathan Ding](https://github.com/nwhee)
 
-Joshua Jung (https://github.com/joshuajungg)
+[Joshua Jung](https://github.com/joshuajungg)
 
