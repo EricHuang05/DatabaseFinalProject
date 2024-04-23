@@ -7,7 +7,7 @@ authors = Blueprint('authors', __name__)
 
 # Get all the authors from the database
 @authors.route('/authors', methods=['GET'])
-def get_products():
+def get_authors():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT AuthorID, FirstName, LastName FROM Author')
     column_headers = [x[0] for x in cursor.description]
