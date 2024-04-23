@@ -29,11 +29,23 @@ def get_booksOnSale():
         json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
 
-# Get all the books from the database that are on sale
+# Get all the books from the database that are trending
 @books.route('/booksTrending', methods=['GET'])
 def get_booksTrending():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT BookID, Title, Genre, ISBN, ReleaseDate, BookFormat, Status, OriginalPrice, IsOnSale, CurrentPrice, IsTrending, NumStock FROM Book WHERE IsTrending = 1')
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
+
+# Get all the books from the database that are in stock
+@books.route('/booksInStock', methods=['GET'])
+def get_booksInStock():
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT BookID, Title, Genre, ISBN, ReleaseDate, BookFormat, Status, OriginalPrice, IsOnSale, CurrentPrice, IsTrending, NumStock FROM Book WHERE NumStock >= 1')
     column_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
