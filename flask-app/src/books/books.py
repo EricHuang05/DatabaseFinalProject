@@ -3,13 +3,13 @@ import json
 from src import db
 
 
-authors = Blueprint('authors', __name__)
+books = Blueprint('books', __name__)
 
-# Get all the authors from the database
-@authors.route('/authors', methods=['GET'])
+# Get all the books from the database
+@books.route('/books', methods=['GET'])
 def get_products():
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT AuthorID, FirstName, LastName FROM Author')
+    cursor.execute('SELECT BookID FROM Book')
     column_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
